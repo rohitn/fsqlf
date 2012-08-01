@@ -7,7 +7,7 @@
     {                                           \
         fprintf(stderr, "\n" MESSAGE "\n", __VA_ARGS__ );\
         exit( CODE );                           \
-    } 
+    }
 
 
 #define PRINT_OPTION_INFO( OPTION_TEXT , OPTION_DESCRIPTION ) \
@@ -40,11 +40,8 @@ void usage_info(int argc, char **argv)
 void read_cli_options(int argc, char **argv)
 {
     int i;
-    if(argc == 1)
-    {
-      usage_info(argc, argv);
-      exit(0);
-    }
+    if(argc == 1) return; // use stdin and stdout
+
     for(i=1;i<argc;i++)
     {
         if( argv[i][0] != '-')
